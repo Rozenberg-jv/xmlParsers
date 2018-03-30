@@ -13,7 +13,9 @@ public class Main {
     public static void main(String[] args) throws IOException, SAXException, ParserConfigurationException {
         String file = "example.xml";
 
-        MyXmlParser parser = new MySAXParser();
+        MyXmlParser parser;
+
+        parser = new MySAXParser();
         parser.parse(file);
 
         parser = new MyDOMParser();
