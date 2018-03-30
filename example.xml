@@ -6,6 +6,7 @@
         <from>Vasily</from>
         <to>Igor</to>
         <comment>comment 1</comment>
+        <comment>comment 2</comment>
         <amount currency="USD">100</amount>
     </transaction>
 
@@ -15,8 +16,8 @@
         <reason>not enaugh money</reason>
         <from>Igor</from>
         <to>Vasily</to>
-        !here is unparsable info!
-        <comment>comment 2</comment>
+        !here is unparsable data!
+        <comment>comment</comment>
         <amount currency="RUB">1000</amount>
     </transaction>
 
@@ -35,6 +36,7 @@
         <from>Igor</from>
         <to>Vasily</to>
         <comment></comment>
+        <comment>comment after empty</comment>
         <amount currency="USD">4</amount>
     </transaction>
 

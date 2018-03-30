@@ -15,7 +15,9 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class MyDOMParser implements MyXmlParser {
     @Override
@@ -40,14 +42,21 @@ public class MyDOMParser implements MyXmlParser {
                     reason = elem.getElementsByTagName("reason").item(0).getChildNodes().item(0).getNodeValue();
                 String from = elem.getElementsByTagName("from").item(0).getChildNodes().item(0).getNodeValue();
                 String to = elem.getElementsByTagName("to").item(0).getChildNodes().item(0).getNodeValue();
-                String comment =
-                        elem.getElementsByTagName("comment").item(0).getChildNodes().getLength() == 0 ?
-                                "" : elem.getElementsByTagName("comment").item(0).getChildNodes().item(0).getNodeValue();
+
+                Set<String> comments = new HashSet<>();
+                String comment;
+                NodeList comts = elem.getElementsByTagName("comment");
+                for (int c = 0; c < comts.getLength(); c++) {
+                    comment = comts.item(c).getChildNodes().getLength() == 0 ?
+                            "" : comts.item(c).getChildNodes().item(0).getNodeValue();
+                    comments.add(comment);
+                }
+
                 int amount = Integer.parseInt(elem.getElementsByTagName("amount").item(0).getChildNodes().item(0).getNodeValue());
                 String currency = elem.getElementsByTagName("amount").item(0).getAttributes().getNamedItem("currency").getNodeValue();
 
                 myTransactions.add(new MyTransaction(
-                        id, status, reason, from, to, comment, amount, currency
+                        id, status, reason, from, to, comments, amount, currency
                 ));
             }
         }
@@ -55,11 +64,3 @@ public class MyDOMParser implements MyXmlParser {
         myTransactions.forEach(System.out::println);
     }
 }
-/*private int id;
-    private Statuses status;
-    private String reason;
-    private String from;
-    private String to;
-    private String comment;
-    private int amount;
-    private String currency;*/
