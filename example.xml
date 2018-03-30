@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<transactions>
+    <transaction>
+        <id>1235</id>
+        <status>ok</status>
+        <from>Vasily</from>
+        <to>Igor</to>
+        <comment>comment 1</comment>
+        <amount currency="USD">100</amount>
+    </transaction>
+
+    <transaction>
+        <id>1236</id>
+        <status>failed</status>
+        <reason>not enaugh money</reason>
+        <from>Igor</from>
+        <to>Vasily</to>
+        !here is unparsable info!
+        <comment>comment 2</comment>
+        <amount currency="RUB">1000</amount>
+    </transaction>
+
+    <transaction>
+        <id>1237</id>
+        <status>ok</status>
+        <from>Olga</from>
+        <to>Igor</to>
+        <comment>a bit longer comment 3</comment>
+        <amount currency="BYN">112</amount>
+    </transaction>
+
+    <transaction>
+        <id>1238</id>
+        <status>ok</status>
+        <from>Igor</from>
+        <to>Vasily</to>
+        <comment></comment>
+        <amount currency="USD">4</amount>
+    </transaction>
+
+    <transaction>
+        <id>1239</id>
+        <status>failed</status>
+        <reason>receiver`s account is blocked</reason>
+        <from>Igor</from>
+        <to>Moisyan</to>
+        <comment/>
+        <amount currency="USD">40</amount>
+    </transaction>
+</transactions>
